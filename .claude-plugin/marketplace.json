@@ -1,0 +1,17 @@
+{
+  "name": "video-agent-skill",
+  "owner": { "name": "sunith vs" },
+  "metadata": {
+    "description": "Video editing skills for Claude Code: Reels / Shorts and full-length YouTube videos.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "video-editor",
+      "source": "./plugins/video-editor",
+      "description": "reel-editor (vertical Reels/Shorts with motion graphics) and youtube-editor (long-form 16:9 with jump cuts, chapters, b-roll, subtitles, thumbnails).",
+      "version": "1.0.0",
+      "keywords": ["video", "reels", "youtube", "motion-graphics"]
+    }
+  ]
+}

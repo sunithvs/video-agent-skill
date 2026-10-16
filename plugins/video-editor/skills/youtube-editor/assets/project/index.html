@@ -1,0 +1,23 @@
+<!doctype html>
+<!--
+  Video compositor. reel/engine.js builds the stage and the seek(t) API; edit.js is this video's edit.
+  tmp/meta.js (scripts/prep.sh): duration, frame count, camera frame size. tmp/cuts.js (scripts/jumpcuts.py): jump cuts.
+  Live preview needs the camera frames: node scripts/render.mjs frames, then open this file (click to play, ?t=95 to freeze).
+-->
+<html>
+<head>
+<meta charset="utf-8" />
+<title>video</title>
+<link rel="stylesheet" href="reel/engine.css" />
+<style>
+  /* Brand: @font-face for fonts saved by scripts/fonts.sh (assets/fonts/), then point the variables at them.
+  :root { --font-display: 'Brand Display', sans-serif; --c-bg: #0E0E11; } */
+</style>
+</head>
+<body>
+<script src="tmp/meta.js"></script>
+<script src="tmp/cuts.js"></script>
+<script src="reel/engine.js"></script>
+<script src="edit.js"></script>
+</body>
+</html>

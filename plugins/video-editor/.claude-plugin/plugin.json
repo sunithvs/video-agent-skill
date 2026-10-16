@@ -1,0 +1,9 @@
+{
+  "name": "video-editor",
+  "version": "1.0.0",
+  "description": "Edit talking-head videos with Claude: vertical Reels/Shorts with code-rendered motion graphics (reel-editor) and full-length 16:9 YouTube videos with jump cuts, chapters, b-roll, subtitles and thumbnails (youtube-editor). Rendered frame by frame from HTML with Playwright + ffmpeg.",
+  "author": { "name": "sunith vs" },
+  "repository": "https://github.com/sunithvs/video-agent-skill",
+  "license": "Apache-2.0",
+  "keywords": ["video", "reels", "shorts", "youtube", "motion-graphics", "captions", "ffmpeg", "playwright"]
+}

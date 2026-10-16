@@ -1,0 +1,22 @@
+<!doctype html>
+<!--
+  Reel compositor. reel/engine.js builds the stage and the seek(t) API; edit.js is this project's edit.
+  tmp/meta.js is written by scripts/prep.sh (duration and frame count of source/edit.mp4).
+  Open directly in a browser to preview: click to play with audio/mix.wav, ?t=12.3 freezes a frame, ?captions=0 hides captions.
+-->
+<html>
+<head>
+<meta charset="utf-8" />
+<title>reel</title>
+<link rel="stylesheet" href="reel/engine.css" />
+<style>
+  /* Brand: add @font-face rules for fonts saved by scripts/fonts.sh (assets/fonts/) and point the variables at them.
+  :root { --font-display: 'Brand Display', sans-serif; --c-bg: #0E0E11; } */
+</style>
+</head>
+<body>
+<script src="tmp/meta.js"></script>
+<script src="reel/engine.js"></script>
+<script src="edit.js"></script>
+</body>
+</html>

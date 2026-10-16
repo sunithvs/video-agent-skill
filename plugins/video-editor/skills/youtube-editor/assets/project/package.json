@@ -1,0 +1,8 @@
+{
+  "name": "video",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "playwright": "latest"
+  }
+}

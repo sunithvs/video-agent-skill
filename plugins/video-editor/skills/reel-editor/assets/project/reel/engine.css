@@ -1,0 +1,55 @@
+/* Reel engine base styles. Projects override the --font-* and --c-* variables (and add @font-face) in index.html. */
+@font-face { font-family: 'Archivo'; src: url(fonts/archivo.woff2) format('woff2'); font-weight: 100 900; font-stretch: 62% 125%; font-display: block; }
+@font-face { font-family: 'Inter'; src: url(fonts/inter.woff2) format('woff2'); font-weight: 100 900; font-display: block; }
+@font-face { font-family: 'Geist Mono'; src: url(fonts/geist-mono.woff2) format('woff2'); font-weight: 100 900; font-display: block; }
+
+:root {
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --c-bg: #0E0E11;
+  --c-bg2: #17171C;
+  --c-grid: rgba(255, 255, 255, 0.045);
+  --c-muted: #8B8B96;
+  --c-cap-bg: rgba(14, 14, 17, 0.82);
+}
+html, body { margin: 0; background: #000; }
+body.preview { display: grid; place-items: center; min-height: 100vh; cursor: pointer; }
+body.preview #stage { transform: scale(var(--fit, 0.4)); transform-origin: center; }
+#stage {
+  position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--c-bg);
+  font-family: var(--font-body); color: #fff; -webkit-font-smoothing: antialiased; font-feature-settings: 'tnum' 1;
+}
+#cam, #bg, .layer { position: absolute; inset: 0; }
+#bg {
+  background:
+    linear-gradient(var(--c-grid) 1px, transparent 1px) 0 0 / 120px 120px,
+    linear-gradient(90deg, var(--c-grid) 1px, transparent 1px) 0 0 / 120px 120px,
+    radial-gradient(120% 80% at 50% 30%, var(--c-bg2) 0%, var(--c-bg) 70%);
+}
+#face { position: absolute; overflow: hidden; background: #2a2a2e; }
+#faceImg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 0 0; }
+.abs { position: absolute; }
+.disp { font-family: var(--font-display); letter-spacing: -0.03em; }
+.mono { font-family: var(--font-mono); letter-spacing: 3px; text-transform: uppercase; }
+.url { text-transform: none; letter-spacing: 1px; }
+.emoji { font-family: 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; letter-spacing: 0; }
+.label { left: 70px; top: 238px; font-size: 24px; color: var(--c-muted); white-space: nowrap; }
+.label b { color: #fff; font-weight: 500; }
+.chip { display: inline-flex; align-items: center; gap: 14px; height: 88px; padding: 0 30px; border-radius: 44px; white-space: nowrap; }
+.icon { border-radius: 24%; box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6); }
+.card { border-radius: 28px; overflow: hidden; box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.12), 0 40px 90px -24px rgba(0, 0, 0, 0.8); }
+.cap { left: 60px; right: 60px; top: 0; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 46px; line-height: 70px; letter-spacing: -0.5px; }
+.cap span { background: var(--c-cap-bg); padding: 5px 20px 7px; border-radius: 16px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.cap i { font-style: normal; }
+.code { font-family: var(--font-mono); font-size: 33px; line-height: 58px; white-space: pre; }
+.dots { display: flex; gap: 10px; }
+.dots div { width: 14px; height: 14px; border-radius: 7px; }
+
+/* editor-kit passes (?pass=..., see engine.js): each pass shows one layer of the frame */
+html.pass-alpha, html.pass-alpha body { background: var(--pass-matte, transparent) !important; }
+html.pass-alpha #stage { background: transparent !important; }
+html.pass-background #face, html.pass-background #layers, html.pass-background #caps,
+html.pass-face #bg, html.pass-face #faceFill, html.pass-face #under, html.pass-face #layers, html.pass-face #caps,
+html.pass-graphics #bg, html.pass-graphics #faceFill, html.pass-graphics #under, html.pass-graphics #face, html.pass-graphics #caps,
+html.pass-captions #cam, .layer.pass-off { display: none !important; }
